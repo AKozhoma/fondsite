@@ -1,0 +1,90 @@
+<?php
+
+
+
+/**
+ * Implements hook_block_info.
+ */
+function mailchimp_block_block_info() {
+  $blocks = array();
+  $blocks[1] = array(
+    'info' => t('Mailchimp main block'),
+    'cache' => DRUPAL_CACHE_PER_USER,
+  );
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ * Provides a block for each available list for a given user
+ */
+function mailchimp_block_block_view($delta = '') {
+  global $user;
+  $block['subject'] = t('Nieuwsbrief');
+  $block['content'] = drupal_get_form('mailchimp_block_user_subscribe_form', $user);
+
+  return $block;
+}
+
+/**
+ * Mailchimp block form.
+ */
+function mailchimp_block_user_subscribe_form($form, &$form_state, $account) {
+  $form['account'] = array('#type' => 'value', '#value' => $account);
+  $form['mailchimp_lists'] = array('#tree' => TRUE);
+
+  $lists = mailchimp_lists_load_multiple();
+  $options = array();
+  foreach ($lists as $list) {
+    $options[$list->id] = $list->label;
+  }
+  $form['intro_text'] = array(
+    '#markup'           => t('Wilt u op de hoogte blijven van alle activiteiten van Museum Volkenkunde? Nieuwe tentoonstellingen, rondleidingen, lezingen, leuke acties: u leest het allemaal in de gratis digitale nieuwsbrief. Schrijf u nu vrijblijvend in en ontvang tien keer per jaar bericht van het museum.'),
+    '#prefix' => '<p>',
+    '#suffix' => '</p>',
+  );
+  $form['mailchimp_list'] = array(
+    '#type'           => 'select',
+ //   '#title'          => t('Ik wens mij te abonneren op'),
+    '#options'        => $options,
+  );
+  $form['email'] = array(
+    '#type'           => 'textfield',
+    '#default_value'  => empty($account->mail)?'':$account->mail,
+   // '#title'          => t('Email'),
+  );
+
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => t('Registreer'),
+  );
+  $form['lists'] = array(
+    '#value' => $lists,
+  );
+
+  return $form;
+}
+
+/**
+ * Submit handler to mailchimp block form.
+ */
+function mailchimp_block_user_subscribe_form_submit($form, &$form_state) {
+  $mail = $form_state['values']['email'];
+  $list_id = $form_state['values']['mailchimp_list'];
+
+  $mcapi = mailchimp_get_api_object();
+    $mergevars = array();
+    $mergevars['EMAIL'] = $mail;
+    $mergevars['FNAME'] = $form['account']['#value']->name;
+  $lists = mailchimp_lists_load_multiple(array($list_id));
+  $list = $lists[$list_id];
+  
+  $is_subscribed = mailchimp_is_subscribed($list->mc_list_id, $mail);
+  if ($is_subscribed) {
+    $ret = mailchimp_update_user($list, $mail, $mergevars, TRUE, $mcapi);
+  }
+  else {
+    $ret = mailchimp_subscribe_user($list, $mail, $mergevars, TRUE, $mcapi);
+  }
+}
+
