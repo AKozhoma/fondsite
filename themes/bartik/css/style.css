@@ -481,7 +481,8 @@ h1#site-name {
   list-style: none;
 }
 #main-menu-links a,
-.view-events-main .view-footer a {
+.view-events-main .view-footer a,
+.view-protege-page .view-footer a {
   float: left; /* LTR */
   padding: 7px 20px;
   text-decoration: none;
@@ -500,7 +501,10 @@ h1#site-name {
 #main-menu-links a:active,
 .view-events-main .view-footer a:hover,
 .view-events-main .view-footer a:focus,
-.view-events-main .view-footer a:active {
+.view-events-main .view-footer a:active,
+.view-protege-page .view-footer a:hover,
+.view-protege-page .view-footer a:focus,
+.view-protege-page .view-footer a:active {
   background: #ff9a9a !important;
   color: white;
 }
@@ -616,7 +620,7 @@ h1#page-title {
   padding: 0;
   display: block;
   float: left;
-  width: 650px;
+  width: 750px;
   text-align: justify;
 }
 .node-teaser .content {
@@ -1875,4 +1879,45 @@ img {
   float: right;
   width: 300px;
   text-align: justify;
+}
+
+.protegeProject .protegeEvent,
+.protegeProject .projectEvent,
+.protegeProject .partnerEvent,
+.needProject .protegeEvent,
+.needProject .projectEvent,
+.needProject .partnerEvent {
+  display: none;
+}
+
+.field-name-field-cost .field-label,
+.field-name-field-cost .field-items,
+.field-name-field-total-number .field-label,
+.field-name-field-total-number .field-items {
+  position: relative;
+  display: block;
+  float: left;
+}
+
+.field-name-field-cost,
+.field-name-field-total-number,
+.field-name-field-purchased-quantity {
+  float: left;
+  width: 500px;
+  margin: 0 10px 10px 0;
+}
+
+.needProject,
+.protegeProject {
+  display: block;
+  float: left;
+  text-align: justify;
+}
+
+.protegeProject .node--protege,
+.needProject .node--need {
+  display: block;
+  float: left;
+  width: 250px;
+  margin-right: 10px;
 }

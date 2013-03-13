@@ -85,9 +85,8 @@ $nodemas = array ();
 $mas_tag_event_protege = array ();
 $mas_tag_event_project = array ();
 $mas_tag_event_partner = array ();
-
 ?>
-<?php //dpm($node); ?>
+
 <div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
 
   <?php print render($title_prefix); ?>
@@ -169,10 +168,6 @@ $mas_tag_event_partner = array ();
   <?php } ?>
 <?php } ?>
 
-<?php //dpm($mas_tag_need); ?>
-<?php //dpm($mas_tag_project); ?>
-<?php //dpm($mas_tag_partner); ?>
-
 <?php //Загрузка всех нод с типом Событие ?>
 <?php
   $query = new EntityFieldQuery();
@@ -188,59 +183,135 @@ $mas_tag_event_partner = array ();
 ?>
 
 <?php //Сравнение тегов Подопечных и Событий и загрузка нужных событий ?>
+
+<div class ="protegeEvent">
 <?php
   foreach ($nodemas as $key => $value1) {
     $mas_tag_event_protege = $value1->field_tag_block_protege[$node->language];
     foreach ($mas_tag_event_protege as $key2 => $value2) {
       if (in_array($value2['tid'], $mas_tag_protege)) {
-        $node1 = node_load($value1->nid);?>
-<div class ="protegeEvent">
-<?php
+        $node1 = node_load($value1->nid);
         $rendered_node = node_view($node1, 'teaser', NULL);
         print drupal_render($rendered_node);
-        break;?>
-</div>
-<?php
+        break;
       }
     }
   }
 ?>
+</div>
 
 <?php //Сравнение тегов Проектов и Событий и загрузка нужных событий ?>
+
+<div class ="projectEvent">
 <?php
   foreach ($nodemas as $key => $value1) {
     $mas_tag_event_project = $value1->field_tag_block_project[$node->language];
     foreach ($mas_tag_event_project as $key2 => $value2) {
       if (in_array($value2['tid'], $mas_tag_project)) {
-        $node1 = node_load($value1->nid);?>
-<div class ="projectEvent">
-<?php
+        $node1 = node_load($value1->nid);
         $rendered_node = node_view($node1, 'teaser', NULL);
         print drupal_render($rendered_node);
         break;?>
-</div>
 <?php
       }
     }
   }
 ?>
+</div>
 
 <?php //Сравнение тегов Партнеров и Событий и загрузка нужных событий ?>
+
+<div class ="partnerEvent">
 <?php
   foreach ($nodemas as $key => $value1) { 
     $mas_tag_event_partner = $value1->field_tag_block_partner[$node->language];
     foreach ($mas_tag_event_partner as $key2 => $value2) {
       if (in_array($value2['tid'], $mas_tag_partner)) {
         $node1 = node_load($value1->nid);
-        $rendered_node = node_view($node1, 'teaser', NULL);?>
-<div class ="partnerEvent">
-<?php
         $rendered_node = node_view($node1, 'teaser', NULL);
         print drupal_render($rendered_node);
         break;?>
-</div>
 <?php
       }
     }
   }
 ?>
+</div>
+
+<?php //Загрузка всех нод с типом  ?>
+<?php
+  $nodeneedmas = array();
+  $nodeprotegemas = array();
+  
+  $query = new EntityFieldQuery();
+  
+  $terms_need = array();
+  $terms_need['0'] = taxonomy_get_term_by_name('1. SOS');
+  $terms_need['1'] = taxonomy_get_term_by_name('2. Актуальные нужды');
+  foreach($terms_need as $k => $v) {
+    foreach ($v as $key12 => $val12) {
+      $mas[] = $key12;
+    }
+  }
+
+  $entities = $query->entityCondition('entity_type', 'node')
+  ->propertyCondition('type', '_need')
+  ->propertyCondition('status', 1)
+  ->fieldCondition('field_category_need','tid', $mas, 'IN')
+  ->execute();
+  if (!empty($entities['node'])) {
+    foreach ($entities['node'] as $key => $val) {
+      $nodeneedmas[] = node_load($val->nid);
+    }
+  }
+?>
+
+<?php if($node->type == "_project") {
+  $node_project_nid = $node->nid;?>
+<div class ="needProject">
+<?php
+    foreach ($nodeneedmas as $key => $value1) {
+    $mas_need_project = $value1->field_project[$node->language];
+    foreach ($mas_need_project as $key2 => $value2) {
+      if ($node_project_nid == $value2['nid']) {
+        $nodeNeed = node_load($value1->nid);
+        $rendered_node = node_view($nodeNeed, 'teaser', NULL);
+        print drupal_render($rendered_node);
+      }
+    }
+  }?>
+</div>
+<?php
+} ?>
+
+<?php //Загрузка всех нод с типом  ?>
+<?php
+  $query = new EntityFieldQuery();
+  $entities = $query->entityCondition('entity_type', 'node')
+  ->propertyCondition('type', '_protege')
+  ->execute();
+  if (!empty($entities['node'])) {
+    foreach ($entities['node'] as $key => $val) {
+      $nodeprotegemas[] = node_load($val->nid);
+    }
+  }
+?>
+
+<?php if($node->type == "_project") {
+?>
+<div class ="protegeProject">
+<?php
+    foreach ($nodeprotegemas as $key => $value1) {
+    $mas_protege_project = $value1->field_projects[$node->language];
+    foreach ($mas_protege_project as $key2 => $value2) {
+      if ($node_project_nid == $value2['nid']) {
+        $nodeProt = node_load($value1->nid);
+        $rendered_node = node_view($nodeProt, 'teaser', NULL);
+        print drupal_render($rendered_node);
+        break;
+      }
+    }
+  }?>
+</div>
+<?php
+} ?>
