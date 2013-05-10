@@ -1,0 +1,16 @@
+.spacegallery {
+	position: relative;
+	overflow: hidden;
+}
+.spacegallery img {
+	position: absolute;
+	left: 50%;
+}
+
+#myGallery {
+	width: 600px;
+	height: 500px;
+}
+#myGallery img {
+	border: 2px solid #52697E;
+}
