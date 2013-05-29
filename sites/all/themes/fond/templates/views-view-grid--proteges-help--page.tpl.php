@@ -1,4 +1,9 @@
 <?php
+  $link_new = url('node/add/-protege');
+  if (in_array('administrator', $user->roles)): ?>
+    <a class="new_data_report" href=<?php print $link_new; ?>>Добавить нового Подопечного</a>
+  <?php endif; ?>
+<?php
   $vocabulary = taxonomy_vocabulary_machine_name_load('_category_protege');
   $terms = taxonomy_get_tree($vocabulary->vid);
   foreach ($terms as $key => $value) {

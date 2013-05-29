@@ -1,5 +1,9 @@
 <?php
-
+  $link_new = url('node/add/-project');
+  if (in_array('administrator', $user->roles)): ?>
+    <a class="new_data_report" href=<?php print $link_new; ?>>Добавить новый Проект</a>
+  <?php endif; ?>
+<?php
 /**
  * @file
  * Default simple view template to display a rows in a grid.

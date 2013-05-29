@@ -727,11 +727,13 @@ input.form-button-disabled:active {
   top: -8px;
 }
 
-#cke_contents_edit-field-preview-und-0-value {
+#cke_contents_edit-field-preview-und-0-value,
+#cke_contents_edit-field-preview-ru-0-value {
   height: 70px !important;
 }
 
-#cke_contents_edit-body-und-0-value {
+#cke_contents_edit-body-und-0-value,
+#cke_contents_edit-body-ru-0-value {
   height: 140px !important;
 }
 
@@ -1070,19 +1072,16 @@ div.add-or-remove-shortcuts {
 #overlay-title {
   padding-left: 30px;
 }
-
 div.add-or-remove-shortcuts {
   float: right;
   padding-right: 30px;
 }
-
 .wysiwyg-toggle-wrapper,
 .filter-guidelines-processed,
 .cke_toolbox_collapser,
 .cke_bottom {
   display: none;
 }
-
 #edit-field-cost,
 #edit-field-currency,
 #edit-field-total-number,
@@ -1108,22 +1107,28 @@ div.add-or-remove-shortcuts {
   width: 350px;
 }
 
-#edit-field-cost-und-0-value {
+#edit-field-cost-und-0-value,
+#edit-field-cost-ru-0-value {
   width: 50px;
 }
-#edit-field-currency-und {
+#edit-field-currency-und,
+#edit-field-currency-ru {
   width: 105px;
 }
-#edit-field-total-number-und-0-value {
+#edit-field-total-number-und-0-value,
+#edit-field-total-number-ru-0-value {
   width: 90px;
 }
-#edit-field-purchased-quantity-und-0-value {
+#edit-field-purchased-quantity-und-0-value,
+#edit-field-purchased-quantity-ru-0-value {
   width: 60px;
 }
-#edit-field-category-need-und {
+#edit-field-category-need-und,
+#edit-field-category-need-ru {
   width: 135px;
 }
-#edit-field-tag-need-und {
+#edit-field-tag-need-und,
+#edit-field-tag-need-ru {
   width: 260px;
 }
 #edit-actions {
@@ -1132,9 +1137,11 @@ div.add-or-remove-shortcuts {
   float: right;
   margin-right: -10px;
 }
-
 .node-form.overlay-processed .vertical-tabs.clearfix {
   display: none;
+}
+#-need-node-form #edit-title {
+  width: 450px;
 }
 
 /* -------------------- Partners -------------------- */
@@ -1145,7 +1152,8 @@ div.add-or-remove-shortcuts {
   width: 200px;
   margin-top: -20px;
 }
-#edit-field-category-partner-und {
+#edit-field-category-partner-und,
+#edit-field-category-partner-ru {
   width: 100px;
 }
 
@@ -1156,15 +1164,18 @@ div.add-or-remove-shortcuts {
   position: relative;
   margin-top: -20px;
 }
-#edit-field-tag-partner-und {
+#edit-field-tag-partner-und,
+#edit-field-tag-partner-ru {
   width: 295px;
 }
-#edit-field-image-und-0-upload-button {
+#edit-field-image-und-0-upload-button,
+#edit-field-image-ru-0-upload-button {
   margin-left: 10px;
 }
 
 /* -------------------- Proteges -------------------- */
-#cke_contents_edit-field-diagnos-und-0-value {
+#cke_contents_edit-field-diagnos-und-0-value,
+#cke_contents_edit-field-diagnos-ru-0-value {
   height: 70px !important;
 }
 #edit-field-date-birth {
@@ -1208,13 +1219,25 @@ div.add-or-remove-shortcuts {
   width: 250px;
   margin-top: -150px;
 }
-#edit-field-tag-protege-und {
+#edit-field-tag-protege-und,
+#edit-field-tag-protege-ru {
   width: 245px;
 }
 .form-item-body-und-0-format label,
-.form-item-field-diagnos-und-0-format label {
+.form-item-field-diagnos-und-0-format label,
+.form-item-body-ru-0-format label,
+.form-item-field-diagnos-ru-0-format label {
   position: absolute;
   top: -8px;
+}
+#cke_edit-field-preview-und-0-value,
+#cke_edit-field-preview-ru-0-value {
+  margin-top: -15px;
+}
+#edit-field-preview-und-0-value,
+#edit-field-preview-ru-0-value {
+  display: block !important;
+  height: 0px;
 }
 
 /* -------------------- Project -------------------- */
@@ -1231,7 +1254,8 @@ div.add-or-remove-shortcuts {
   margin-top: -20px;
   width: 300px;
 }
-#edit-field-tag-project-und {
+#edit-field-tag-project-und,
+#edit-field-tag-project-ru {
   width: 295px;
 }
 
@@ -1256,17 +1280,18 @@ div.add-or-remove-shortcuts {
   display: block;
   float: right;
   position: relative;
-  margin-top: -220px;
+  margin-top: -95px;
   width: 115px;
 }
-#edit-field-category-event-und {
+#edit-field-category-event-und,
+#edit-field-category-event-ru {
   width: 120px;
   height: 40px;
 }
 .node-_event-form #edit-actions {
   position: relative;
   display: inline-block;
-  width: 600px;
+  width: 610px;
   margin-top: -20px;
 }
 .node-_event-form #edit-submit {
@@ -1278,8 +1303,10 @@ div.add-or-remove-shortcuts {
   margin-top: 40px;
 }
 #cke_contents_edit-field-remarks-und-0-value,
-#cke_contents_edit-field-destination-und-0-value {
-    height: 60px !important;
+#cke_contents_edit-field-destination-und-0-value,
+#cke_contents_edit-field-remarks-ru-0-value,
+#cke_contents_edit-field-destination-ru-0-value {
+  height: 60px !important;
 }
 .node-report-form .form-item-title {
   display: none;
@@ -1308,7 +1335,8 @@ div.add-or-remove-shortcuts {
   margin-top: -55px;
   margin-left: 120px;
 }
-#edit-field-account-und-0-value {
+#edit-field-account-und-0-value,
+#edit-field-account-ru-0-value {
   width: 100px;
 }
 #edit-field-report-project {
@@ -1316,6 +1344,51 @@ div.add-or-remove-shortcuts {
   width: 600px;
   margin-top: -20px;
   margin-bottom: -20px;
+}
+.node-report-form .field-name-field-account input {
+  width: 150px;
+}
+.form-type-checkbox.form-item-field-project-link-ru,
+.form-type-checkbox.form-item-field-project-link-und {
+  margin-top: 30px;
+  font-size: 13px;
+  display: block;
+  width: 190px;
+}
+.node-report-form #edit-field-used {
+  display: block;
+  float: left;
+  width: 416px;
+  margin-bottom: 10px;
+}
+.node-report-form #edit-field-project-link {
+  display: block;
+  float: left;
+  width: 200px;
+  margin-bottom: 10px;
+}
+.node-report-form .form-item-field-project-link-ru,
+.node-report-form .form-item-field-project-link-und {
+  font-size: 13px;
+  display: block;
+  width: 190px;
+}
+.field-name-field-used input {
+  display: block;
+  float: left;
+  width: 150px;
+}
+#edit-field-destination label {
+  margin-right: 10px;
+}
+#edit-field-destination {
+  display: inline-block;
+}
+#edit-field-used label {
+  display: none;
+}
+#edit-field-used input {
+  margin-top: 17px;
 }
 
 /* -------------------- Another content types -------------------- */
@@ -1331,7 +1404,23 @@ div.add-or-remove-shortcuts {
   display: block;
 }
 
-
 .page-admin-structure-views-view #overlay {
   width: auto;
+}
+
+.filter-wrapper.form-wrapper {
+  margin-top: 7px;
+}
+
+.ckeditor_links {
+  display: none !important;
+}
+
+#edit-field-preview label {
+  margin-top: 7px;
+}
+
+#edit-field-diagnos-und-0-format,
+#edit-field-diagnos-ru-0-format {
+  display: none;
 }

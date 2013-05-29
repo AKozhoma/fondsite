@@ -1,4 +1,9 @@
 <?php
+  $link_new = url('node/add/-need');
+  if (in_array('administrator', $user->roles)): ?>
+    <a class="new_data_report" href=<?php print $link_new; ?>>Добавить новую Нужду</a>
+  <?php endif; ?>
+<?php
 /**
  * @file
  * Default simple view template to display a rows in a grid.
@@ -36,13 +41,13 @@ $term_archiv = $terms[3]->tid; //taxonomy_get_term_by_name('4. Архив');
             else { print "empty_need"; } ?>>
               <?php if($tid_term == $term_sos)  { ?>
                 <div class="statusSosNeed">Срочно</div>
-              <?php ; } ?>
+              <?php } ?>
               <?php if($tid_term == $term_actual_need)  { ?>
                 <div class="statusActualNeed">Актуально</div>
-              <?php ; } ?>
+              <?php } ?>
               <?php if($tid_term == $term_paided_need)  { ?>
                 <div class="statusPaidedNeed">Оплачено</div>
-              <?php ; } ?>
+              <?php } ?>
               <?php print $item; ?>
           </td>
         <?php } ?>

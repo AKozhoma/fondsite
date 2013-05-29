@@ -84,6 +84,7 @@
  * @see bartik_process_page()
  */
 ?>
+<script type="text/javascript" src="http://open-palm.org.ua/sites/all/themes/fond/js/analytics.js"></script>
 <div id="page-wrapper"><div id="page">
 
   <div id="header" class="<?php print $secondary_menu ? 'with-secondary-menu': 'without-secondary-menu'; ?>"><div class="section clearfix">
@@ -198,13 +199,6 @@
       
       <div class="share42init" data-url="<?php print $node_url ?>" data-title="<?php print $title ?>" data-top1="150" data-top2="20" data-margin="0"></div>
       
-      <div class="sponsors">
-        <div class="sponsors-title">партнеры :</div>
-        <a href="http://www.kec.com.kw" target="blank" class="kyweit">
-          <img class="sponsor-logo" src="sites/all/themes/fond/images/sponsors/KuwaiteEnergy.jpg" />
-        </a>
-      </div>
-      
       <?php print render($page['content']); ?>
       <?php print $feed_icons; ?>
 
@@ -226,6 +220,16 @@
     </div></div> <!-- /#triptych, /#triptych-wrapper -->
   <?php endif; ?>
 
+  <div class="sponsors">
+    <div class="sponsors-title">партнеры :</div>
+    <a href="http://www.kec.com.kw" target="blank" class="kyweit">
+      <img class="sponsor-logo" src="http://open-palm.org.ua/sites/all/themes/fond/images/sponsors/KuwaiteEnergy.jpg" />
+    </a>
+    <a href="http://www.ibcontacts.com.ua" target="blank" class="kyweit">
+      <img class="sponsor-logo" src="http://open-palm.org.ua/sites/all/themes/fond/images/sponsors/IBcontacts.jpg" />
+    </a>
+  </div>
+
   <div id="footer-wrapper"><div class="section">
 
     <?php if ($page['footer_firstcolumn'] || $page['footer_secondcolumn'] || $page['footer_thirdcolumn'] || $page['footer_fourthcolumn']): ?>
@@ -246,4 +250,4 @@
   </div></div> <!-- /.section, /#footer-wrapper -->
 
 </div></div> <!-- /#page, /#page-wrapper -->
-<script type="text/javascript" src="http://sitefond/sites/all/themes/fond/share42/share42.js"></script>
+<script type="text/javascript" src="http://open-palm.org.ua/sites/all/themes/fond/share42/share42.js"></script>
