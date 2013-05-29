@@ -663,9 +663,9 @@ h1#page-title {
   padding: 0;
   display: block;
   float: left;
-  width: 750px;
+  width: 930px;
   text-align: justify;
-  margin-left: 15px;
+  margin: 0 15px;
 }
 .node-teaser .content {
   clear: none;
@@ -1761,7 +1761,7 @@ table {
   border-spacing: 10px;
 }
 
-.views-view-grid td,
+/*.views-view-grid td,*/
 #view_project,
 #view_protege,
 #view_protege_help,
@@ -1769,24 +1769,38 @@ table {
 .view-events.view-id-events td,
 #view_event {
   position: relative;
-  margin: 10px;
-  /*background-image: url('../images/main.jpg');*/
-  width: 245px;
+  margin-right: 10px;
+  width: 225px;
   text-align: justify;
-  height: 385px;
+  height: 240px;
   padding: 0;
-}
-
-#view_project,
-#view_protege,
-#view_protege_help,
-#view_partner,
-.view-events.view-id-events td {
   display: block;
   float: left;
-  background-color: #CCFFFF;
-  height: 300px;
+  background-color: #E0EEE0;
   color: black;
+}
+.views-view-grid.cols-4 {
+  width: 960px;
+}
+#view_event {
+  height: 250px;
+}
+#view_protege {
+  height: 280px;
+}
+#view_project {
+  height: 245px;
+}
+.view-reports table {
+  width: 960px;
+}
+.views-view-grid td {
+  position: relative;
+  margin-right: 10px;
+  text-align: justify;
+  width: 245px;
+  height: 385px;
+  padding: 0;
 }
 
 #empty_event {
@@ -1842,14 +1856,8 @@ img {
   text-transform: uppercase;
 }
 
+.view--need-content .views-field-title,
 .views-field-title {
-  text-align: center;
-  font-size: 15px;
-  font-weight: bold;
-  margin: 35px 7px 7px 7px;
-}
-
-.view--need-content .views-field-title {
   text-align: center;
   font-weight: bold;
   margin: 5px 0 0 0;
@@ -2137,6 +2145,7 @@ a {
   -webkit-border-radius: 10px;
   border-radius: 10px;
   font-size: 13px;
+  z-index: 10;
 }
 
 .logged-in a.new_data_report:hover,
@@ -2347,4 +2356,68 @@ a.kyweit img:hover {
 }
 .logged-in #block-views-need-content-block .new_data_report {
   top: 0;
+}
+
+
+.photoevent,
+#view_protege .views-field-field-image,
+#view_project .views-field-field-image {
+  width: 221px;
+  margin: 0 2px;
+  background-color: #fff;
+  display: inline-block;
+  height: 100px;
+}
+.photoevent img,
+#view_protege .views-field-field-image img,
+#view_project .views-field-field-image img {
+  display: block;
+  width: auto;
+  height: 100px;
+  margin: 0 auto;
+  float: none;
+}
+.previewevent,
+.preview_protege,
+.preview_project {
+  display: inline-block;
+  width: 215px;
+  margin: 0 5px;
+  height: 70px;
+}
+.aboutevent {
+  display: inline-block;
+  float: right;
+  margin: 0 5px;
+  height: 15px;
+}
+#view_event .views-field-title {
+  margin: 5px 5px 0 5px;
+  height: 50px;
+}
+
+#view_protege .views-field-title {
+  height: 25px;
+}
+.datebirth_protege {
+  width: 100%;
+  display: inline-block;
+  height: 15px;
+  margin: 0 5px;
+}
+.views-field-field-projects {
+  height: 30px;
+  width: 215px;
+  margin: 0 5px;
+  display: inline-block;
+}
+.preview_protege {
+  height: 75px;
+}
+.link_protege,
+.link_project {
+  height: 15px;
+  display: inline-block;
+  float: right;
+  margin-right: 5px;
 }
