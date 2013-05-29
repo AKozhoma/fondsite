@@ -1966,18 +1966,10 @@ img {
   float: none;
 }
 
-#sos_need {
-  background-color: #CCFFFF;
-  color: black;
-}
-
-#actual_need {
-  background-color: #CCFFFF;
-  color: black;
-}
-
+#sos_need,
+#actual_need,
 #paided_need {
-  background-color: #CCFFFF;
+  background-color: #E0EEE0;
   color: black;
 }
 
